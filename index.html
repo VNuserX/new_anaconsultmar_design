@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ANAConsultmar – Light</title>
+
+  <!-- ============================== -->
+  <!-- FONTS                          -->
+  <!-- ============================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="css/main.css" />  
+  <link rel="stylesheet" href="css/light-theme.css" />
+</head>
+<body data-page="home">
+
+  <!-- ============================== -->
+  <!-- PARTICLES                      -->
+  <!-- ============================== -->
+  <div class="particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <!-- ============================== -->
+  <!-- MOBILE OVERLAY                 -->
+  <!-- ============================== -->
+  <div class="mobile-overlay" id="mobileOverlay">
+    <ul>
+      <li><a href="/" data-nav="home">Home</a></li>
+      <li><a href="/about/" data-nav="about">About Us</a></li>
+      <li><a href="/services/" data-nav="services">Services</a></li>
+      <li><a href="/tbs/" data-nav="tbs">TBS</a></li>
+      <li><a href="/riken-keiki/" data-nav="riken-keiki">Riken Keiki</a></li>
+      <li><a href="/partners/" data-nav="partners">Partners</a></li>
+      <li><a href="/training/" data-nav="training">Training</a></li>
+      <li><a href="/contact/" data-nav="contact" class="mobile-cta">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- ============================== -->
+  <!-- HEADER                         -->
+  <!-- ============================== -->
+  <header class="site-header" id="siteHeader">
+    <a href="/" class="logo">ANA<span>Consultmar</span></a>
+    <ul class="nav-links">
+      <li><a href="/" data-nav="home">Home</a></li>
+      <li><a href="/about/" data-nav="about">About Us</a></li>
+      <li><a href="/services/" data-nav="services">Services</a></li>
+      <li><a href="/tbs/" data-nav="tbs">TBS</a></li>
+      <li><a href="/riken-keiki/" data-nav="riken-keiki">Riken Keiki</a></li>
+      <li><a href="/partners/" data-nav="partners">Partners</a></li>
+      <li><a href="/training/" data-nav="training">Training</a></li>
+      <li><a href="/contact/" data-nav="contact" class="nav-cta">Contact</a></li>
+    </ul>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+      <i class="fas fa-bars"></i>
+    </button>
+  </header>
+
+  <!-- ============================== -->
+  <!-- HERO                           -->
+  <!-- ============================== -->
+  <section class="hero" id="heroSection">
+    <div class="hero-background" id="heroBackground">
+      <div class="hero-slide active" style="background-image: url('https://anaconsultmar.com/wp-content/uploads/2018/10/Bulk-cabinet-lover-part.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('https://anaconsultmar.com/wp-content/uploads/2018/10/Calibration-and-maintenace-kit-1.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('https://anaconsultmar.com/wp-content/uploads/2018/10/services.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('https://anaconsultmar.com/wp-content/uploads/2018/10/Class-room-compressed.jpg');"></div>
+    </div>
+    <div class="container hero-content">
+      <div class="section-label">Excellence in Maritime</div>
+      <h1>Safety.<br /><span class="line2">Quality.</span><br />Environment.</h1>
+      <p>Improving and promoting safety, quality and environment protection in the maritime industry – sharing our experience and knowledge in a sustainable and responsible way.</p>
+      <div class="hero-btns">
+        <a href="/services/" class="btn-primary">Explore Services</a>
+        <a href="/contact/" class="btn-outline">Get in Touch</a>
+      </div>
+    </div>
+    <div class="hero-indicators" id="heroIndicators">
+      <button class="active" data-index="0"></button>
+      <button data-index="1"></button>
+      <button data-index="2"></button>
+      <button data-index="3"></button>
+    </div>
+  </section>
+
+  <!-- ============================== -->
+  <!-- BENTO (Mission / Vision)       -->
+  <!-- ============================== -->
+  <section class="bento-section">
+    <div class="container">
+      <div class="section-label reveal">Who we are</div>
+      <h2 class="section-title reveal">Mission &amp; <span class="highlight">Vision</span></h2>
+      <div class="bento-grid">
+        <div class="bento-item mission reveal">
+          <span class="icon-lg"><i class="fas fa-bullseye"></i></span>
+          <h3>Mission</h3>
+          <p>Improving and promoting safety, quality and environment protection in the maritime industry sharing our experience and knowledge in a sustainable and responsible way.</p>
+        </div>
+        <div class="bento-item vision reveal">
+          <span class="icon-lg"><i class="fas fa-eye"></i></span>
+          <h3>Vision</h3>
+          <p>Becoming the maritime industry preferred partner in safety, quality, compliance, environment protection and services in Baltic.</p>
+        </div>
+        <div class="bento-item stat reveal">
+          <span class="number">15+</span>
+          <p style="font-weight:300;">Years of excellence in maritime consulting &amp; safety.</p>
+        </div>
+        <div class="bento-item image-item reveal">
+          <img src="https://anaconsultmar.com/wp-content/uploads/2018/10/Ship-in-Vent-with-me-1.jpg" alt="Maritime expertise" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== -->
+  <!-- SERVICES                       -->
+  <!-- ============================== -->
+  <section class="services-section">
+    <div class="container">
+      <div class="section-label reveal">What we offer</div>
+      <h2 class="section-title reveal">Core <span class="highlight">Services</span></h2>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="icon"><i class="fas fa-ship"></i></div>
+          <h4>Pre-Vetting</h4>
+          <p>Inspection to ensure your ship is in full compliance with the latest VIQ and in proper practical/cosmetic condition.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon"><i class="fas fa-clipboard-check"></i></div>
+          <h4>QA Audits</h4>
+          <p>Comprehensive QA audits to verify shipboard organization, procedures, and performance meet the highest standards.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon"><i class="fas fa-chalkboard-teacher"></i></div>
+          <h4>Training</h4>
+          <p>Vetting courses, leadership, gas measuring equipment, enclosed space procedures, and interactive role‑play learning.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon"><i class="fas fa-microscope"></i></div>
+          <h4>Riken Keiki</h4>
+          <p>Sales, calibration, maintenance, and consumables for Riken Keiki gas detection instruments – reliable and precise.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon"><i class="fas fa-handshake"></i></div>
+          <h4>The Bruusgaard System</h4>
+          <p>Service and support for TBS instruments, including Riken Keiki, RAE, and Gastec, with expert personnel training.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon"><i class="fas fa-globe-americas"></i></div>
+          <h4>Environment Protection</h4>
+          <p>Sustainable and responsible practices to protect our oceans and promote a greener maritime future.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== -->
+  <!-- FOOTER (populated by JS)       -->
+  <!-- ============================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner" id="footerInner">
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      'use strict';
+
+      const SITE_CONFIG = {
+        company: {
+          name: 'ANAConsultmar',
+          // The logo splits on the <span> – prefix before, highlight inside
+          logoPrefix: 'ANA',
+          logoHighlight: 'Consultmar',
+        },
+        contact: {
+          email: 'info@anaconsultmar.com',
+          phone: '',                 // e.g. '+371 2000 0000' – leave empty to hide
+          address: 'Cēsu street 31, Riga',
+        },
+        social: {
+          facebook: 'https://www.facebook.com/anaconsultmar',
+          // linkedin: '',           // uncomment and add URL to show
+        },
+        copyright: {
+          year: 2026,
+          autoYear: true,           // if true, uses current year dynamically
+        },
+      };
+
+      /* ================================================================
+         BUILD FOOTER FROM CONFIG
+         ================================================================ */
+      function buildFooter() {
+        const container = document.getElementById('footerInner');
+        if (!container) return;
+
+        const cfg = SITE_CONFIG;
+        const year = cfg.copyright.autoYear ? new Date().getFullYear() : cfg.copyright.year;
+
+        // --- Left block: logo + copyright ---
+        const leftDiv = document.createElement('div');
+        leftDiv.innerHTML =
+          '<strong style="color:var(--color-text-bright);">' +
+          cfg.company.logoPrefix +
+          '<span style="color:var(--color-accent);">' +
+          cfg.company.logoHighlight +
+          '</span></strong>' +
+          '<span style="margin-left:1rem;color:var(--color-text-muted);">© ' + year + '</span>';
+
+        // --- Right block: contact links ---
+        const rightDiv = document.createElement('div');
+
+        // Email
+        if (cfg.contact.email) {
+          const emailLink = document.createElement('a');
+          emailLink.href = 'mailto:' + cfg.contact.email;
+          emailLink.innerHTML = '<i class="fas fa-envelope"></i> ' + cfg.contact.email;
+          rightDiv.appendChild(emailLink);
+        }
+
+        // Phone
+        if (cfg.contact.phone) {
+          const phoneLink = document.createElement('a');
+          phoneLink.href = 'tel:' + cfg.contact.phone.replace(/\s+/g, '');
+          phoneLink.innerHTML = '<i class="fas fa-phone"></i> ' + cfg.contact.phone;
+          rightDiv.appendChild(phoneLink);
+        }
+
+        // Facebook
+        if (cfg.social.facebook) {
+          const fbLink = document.createElement('a');
+          fbLink.href = cfg.social.facebook;
+          fbLink.target = '_blank';
+          fbLink.rel = 'noopener noreferrer';
+          fbLink.innerHTML = '<i class="fab fa-facebook"></i> Facebook';
+          rightDiv.appendChild(fbLink);
+        }
+
+        // LinkedIn
+        if (cfg.social.linkedin) {
+          const liLink = document.createElement('a');
+          liLink.href = cfg.social.linkedin;
+          liLink.target = '_blank';
+          liLink.rel = 'noopener noreferrer';
+          liLink.innerHTML = '<i class="fab fa-linkedin"></i> LinkedIn';
+          rightDiv.appendChild(liLink);
+        }
+
+        // Address
+        if (cfg.contact.address) {
+          const addrSpan = document.createElement('span');
+          addrSpan.style.color = 'var(--color-text-muted)';
+          addrSpan.textContent = cfg.contact.address;
+          rightDiv.appendChild(addrSpan);
+        }
+
+        container.appendChild(leftDiv);
+        container.appendChild(rightDiv);
+      }
+      buildFooter();
+
+      /* ================================================================
+         HIGHLIGHT CURRENT PAGE IN NAVIGATION
+         Reads data-page from <body>, matches data-nav on links.
+         ================================================================ */
+      function highlightCurrentPage() {
+        const currentPage = document.body.dataset.page;
+        if (!currentPage) return;
+
+        const allNavLinks = document.querySelectorAll('[data-nav]');
+        allNavLinks.forEach(link => {
+          if (link.dataset.nav === currentPage) {
+            // For mobile overlay links inside <li>
+            const parentLi = link.closest('li');
+            if (parentLi) parentLi.classList.add('current-page');
+
+            // For desktop nav (the <li> already wraps the <a>)
+            // The CSS rule .nav-links .current-page a handles styling
+          }
+        });
+      }
+      highlightCurrentPage();
+
+      /* ================================================================
+         MOBILE MENU
+         ================================================================ */
+      const toggle = document.getElementById('menuToggle');
+      const overlay = document.getElementById('mobileOverlay');
+      toggle.addEventListener('click', () => {
+        const isOpen = overlay.classList.toggle('open');
+        toggle.innerHTML = isOpen
+          ? '<i class="fas fa-times"></i>'
+          : '<i class="fas fa-bars"></i>';
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+      overlay.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          overlay.classList.remove('open');
+          toggle.innerHTML = '<i class="fas fa-bars"></i>';
+          document.body.style.overflow = '';
+        });
+      });
+
+      /* ================================================================
+         STICKY HEADER
+         ================================================================ */
+      const header = document.getElementById('siteHeader');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 80) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+
+      /* ================================================================
+         HERO SLIDER
+         ================================================================ */
+      const slides = document.querySelectorAll('.hero-slide');
+      const indicators = document.querySelectorAll('#heroIndicators button');
+      let currentSlide = 0;
+      let sliderInterval;
+
+      function goToSlide(index) {
+        slides.forEach((s, i) => {
+          s.classList.toggle('active', i === index);
+        });
+        indicators.forEach((btn, i) => {
+          btn.classList.toggle('active', i === index);
+        });
+        currentSlide = index;
+      }
+      function nextSlide() {
+        goToSlide((currentSlide + 1) % slides.length);
+      }
+      indicators.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          clearInterval(sliderInterval);
+          goToSlide(parseInt(btn.dataset.index));
+          sliderInterval = setInterval(nextSlide, 5000);
+        });
+      });
+      sliderInterval = setInterval(nextSlide, 5000);
+      const hero = document.getElementById('heroSection');
+      hero.addEventListener('mouseenter', () => clearInterval(sliderInterval));
+      hero.addEventListener('mouseleave', () => {
+        sliderInterval = setInterval(nextSlide, 5000);
+      });
+
+      /* ================================================================
+         SCROLL REVEAL
+         ================================================================ */
+      const revealElements = document.querySelectorAll('.reveal');
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+      revealElements.forEach(el => revealObserver.observe(el));
+
+    })();
+  </script>
+</body>
+</html>

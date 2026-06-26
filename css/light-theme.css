@@ -1,0 +1,39 @@
+/* ============================================================
+   LIGHT THEME – Colours, shadows, and backgrounds
+   ============================================================ */
+
+:root {
+  /* ----- BACKGROUNDS ----- */
+  --color-bg-primary: #f4f6f9;
+  --color-bg-secondary: #e9edf2;
+  --color-bg-card: rgba(255, 255, 255, 0.7);
+
+  /* ----- TEXT ----- */
+  --color-text-primary: #1e293b;
+  --color-text-muted: #64748b;
+  --color-text-bright: #0f172a;
+
+  /* ----- ACCENTS ----- */
+  --color-accent: #0ea5e9;
+  --color-accent-hover: #2563eb;
+  --color-accent-glow: rgba(14, 165, 233, 0.2);
+
+  /* ----- BORDERS & SHADOWS ----- */
+  --color-glass-border: rgba(0, 0, 0, 0.06);
+  --color-glass-border-hover: rgba(14, 165, 233, 0.3);
+  --color-particle: rgba(14, 165, 233, 0.08);
+  --color-scrollbar: #0ea5e9;
+  --color-scrollbar-track: #d1d9e6;
+
+  --shadow-heavy: 0 30px 60px rgba(0, 0, 0, 0.08);
+  --shadow-medium: 0 20px 40px rgba(0, 0, 0, 0.05);
+  --shadow-glow: 0 0 30px rgba(14, 165, 233, 0.15);
+
+  /* ----- HERO OVERLAYS ----- */
+  --hero-overlay: rgba(255, 255, 255, 0.55);
+  --hero-slide-opacity: 0.3;
+
+  /* ----- SECTION GRADIENTS ----- */
+  --hero-bg-gradient: radial-gradient(circle at 20% 30%, #dce8f0, var(--color-bg-primary) 70%);
+  --services-bg-gradient: radial-gradient(circle at 80% 20%, #e9edf2, var(--color-bg-primary) 70%);
+}

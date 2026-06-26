@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us – ANAConsultmar</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Shared stylesheets -->
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/light-theme.css" />
+</head>
+<body data-page="contact">
+
+  <!-- Particles -->
+  <div class="particles">
+    <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
+  </div>
+
+  <!-- Mobile overlay -->
+  <div class="mobile-overlay" id="mobileOverlay">
+    <ul>
+      <li><a href="/" data-nav="home">Home</a></li>
+      <li><a href="/about/" data-nav="about">About Us</a></li>
+      <li><a href="/services/" data-nav="services">Services</a></li>
+      <li><a href="/tbs/" data-nav="tbs">TBS</a></li>
+      <li><a href="/riken-keiki/" data-nav="riken-keiki">Riken Keiki</a></li>
+      <li><a href="/partners/" data-nav="partners">Partners</a></li>
+      <li><a href="/training/" data-nav="training">Training</a></li>
+      <li><a href="/contact/" data-nav="contact">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header" id="siteHeader">
+    <a href="/" class="logo">ANA<span>Consultmar</span></a>
+    <ul class="nav-links">
+      <li><a href="/" data-nav="home">Home</a></li>
+      <li><a href="/about/" data-nav="about">About Us</a></li>
+      <li><a href="/services/" data-nav="services">Services</a></li>
+      <li><a href="/tbs/" data-nav="tbs">TBS</a></li>
+      <li><a href="/riken-keiki/" data-nav="riken-keiki">Riken Keiki</a></li>
+      <li><a href="/partners/" data-nav="partners">Partners</a></li>
+      <li><a href="/training/" data-nav="training">Training</a></li>
+      <li><a href="/contact/" data-nav="contact" class="nav-cta">Contact</a></li>
+    </ul>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+      <i class="fas fa-bars"></i>
+    </button>
+  </header>
+
+  <!-- Page banner -->
+  <section class="page-banner">
+    <div class="banner-bg"></div>
+    <div class="container">
+      <h1>Contact Us</h1>
+      <div class="breadcrumb"><a href="/">Home</a> / Contact Us</div>
+    </div>
+  </section>
+
+  <!-- Contact content -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Details column -->
+        <div class="contact-details reveal">
+          <h3><i class="fas fa-map-pin"></i> Get in Touch</h3>
+
+          <div class="detail-item">
+            <i class="fas fa-building"></i>
+            <div>
+              <span class="label">Company</span>
+              <div class="value"><strong>ANAConsultmar, SIA</strong></div>
+            </div>
+          </div>
+
+          <div class="detail-item">
+            <i class="fas fa-id-card"></i>
+            <div>
+              <span class="label">Registration Number</span>
+              <div class="value">40203167893</div>
+            </div>
+          </div>
+
+          <div class="detail-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <span class="label">Legal Address</span>
+              <div class="value">15/2 Ieriku Street, Riga, Latvia, LV-1084</div>
+            </div>
+          </div>
+
+          <div class="detail-item">
+            <i class="fas fa-location-dot"></i>
+            <div>
+              <span class="label">Actual Address</span>
+              <div class="value" id="contactAddress">31 Cēsu Street, k-3, Nr.32-8, Riga, Latvia, LV-1012</div>
+            </div>
+          </div>
+
+          <div class="detail-item">
+            <i class="fas fa-phone"></i>
+            <div>
+              <span class="label">Phone</span>
+              <div class="value"><a href="tel:+37126545239" id="contactPhoneLink"><span id="contactPhone">+371 26545239</span></a></div>
+            </div>
+          </div>
+
+          <div class="detail-item">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <span class="label">Email</span>
+              <div class="value"><a href="mailto:info@anaconsultmar.com" id="contactEmailLink"><span id="contactEmail">info@anaconsultmar.com</span></a></div>
+            </div>
+          </div>
+
+          <div class="social-links">
+            <a href="https://www.facebook.com/anaconsultmar" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="mailto:info@anaconsultmar.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a href="tel:+37126545239" aria-label="Phone"><i class="fas fa-phone"></i></a>
+          </div>
+        </div>
+
+        <!-- Photo column -->
+        <div class="contact-photo reveal">
+          <img src="https://anaconsultmar.com/wp-content/uploads/2018/10/office-1.jpg" alt="ANAConsultmar office" loading="lazy" />
+        </div>
+      </div>   <!-- end contact-grid -->
+    </div>     <!-- end container -->
+
+    <!-- Map – full width, outside the container -->
+    <div class="contact-map reveal">
+      <div class="container">
+        <iframe loading="lazy"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2175.614923231261!2d24.1414288!3d56.9672713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46eece4b575f4821%3A0xa29bb47a6c66baf!2sC%C4%93su%20iela%2031%20K-3%2C%20Vidzemes%20priek%C5%A1pils%C4%93ta%2C%20R%C4%ABga%2C%20LV-1012!5e0!3m2!1sen!2slv!4v1696000000000!5m2!1sen!2slv"
+          width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Google Maps – ANAConsultmar office location"></iframe>
+      </div>
+    </div>
+  </section>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner" id="footerInner">
+      <!-- Populated by JS -->
+    </div>
+  </footer>
+
+  <!-- Shared config + logic -->
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>   <!-- we'll add the contact-population here -->
+</body>
+</html>

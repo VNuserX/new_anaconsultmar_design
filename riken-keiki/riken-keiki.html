@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Riken Keiki – ANAConsultmar</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Shared stylesheets -->
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/light-theme.css" />
+</head>
+<body data-page="riken-keiki">
+
+  <!-- Particles -->
+  <div class="particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <!-- ============================== -->
+  <!-- MOBILE OVERLAY (FIXED PATHS)   -->
+  <!-- ============================== -->
+  <div class="mobile-overlay" id="mobileOverlay">
+    <ul>
+      <li><a href="../" data-nav="home">Home</a></li>
+      <li><a href="../about/about.html" data-nav="about">About Us</a></li>
+      <li><a href="../services/services.html" data-nav="services">Services</a></li>
+      <li><a href="../tbs/tbs.html" data-nav="tbs">TBS</a></li>
+      <li><a href="../riken-keiki/riken-keiki.html" data-nav="riken-keiki">Riken Keiki</a></li>
+      <li><a href="#" data-nav="partners">Partners</a></li>
+      <li><a href="../training/training.html" data-nav="training">Training</a></li>
+      <li><a href="../contact/contact.html" data-nav="contact" style="color:#00e5ff;">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- ============================== -->
+  <!-- HEADER (FIXED PATHS)           -->
+  <!-- ============================== -->
+  <header class="site-header" id="siteHeader">
+    <a href="../" class="logo">ANA<span>Consultmar</span></a>
+    <ul class="nav-links">
+      <li><a href="../" data-nav="home">Home</a></li>
+      <li><a href="../about/about.html" data-nav="about">About Us</a></li>
+      <li><a href="../services/services.html" data-nav="services">Services</a></li>
+      <li><a href="../tbs/tbs.html" data-nav="tbs">TBS</a></li>
+      <li class="current-page"><a href="../riken-keiki/riken-keiki.html" data-nav="riken-keiki">Riken Keiki</a></li>
+      <li><a href="#" data-nav="partners">Partners</a></li>
+      <li><a href="../training/training.html" data-nav="training">Training</a></li>
+      <li><a href="../contact/contact.html" data-nav="contact" class="nav-cta">Contact</a></li>
+    </ul>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+      <i class="fas fa-bars"></i>
+    </button>
+  </header>
+
+  <!-- Page banner -->
+  <section class="page-banner">
+    <div class="banner-bg"></div>
+    <div class="container">
+      <h1>Riken Keiki</h1>
+      <div class="breadcrumb"><a href="../">Home</a> / Riken Keiki</div>
+    </div>
+  </section>
+
+  <!-- Riken Keiki content -->
+  <section class="rk-section">
+    <div class="container">
+      <div class="rk-content">
+        <div class="rk-intro reveal">
+          <p><strong>We together with <span class="highlight-brand">Martin Bruusgaard AS</span> are the official representatives of Riken Keiki in Latvia.</strong></p>
+        </div>
+        <ul class="rk-services reveal">
+          <li><i class="fas fa-store"></i> Sales of Riken Keiki instruments</li>
+          <li><i class="fas fa-tools"></i> Calibration and maintenance</li>
+          <li><i class="fas fa-chalkboard-teacher"></i> Training for instrument users</li>
+          <li><i class="fas fa-box-open"></i> Supply of consumables</li>
+          <li><i class="fas fa-flask"></i> Supply of calibration gas</li>
+        </ul>
+        <div class="rk-logo reveal">
+          <img src="https://anaconsultmar.com/wp-content/uploads/2018/10/Riken-Keiki-logo.jpg" alt="Riken Keiki logo" loading="lazy" />
+        </div>
+        <div class="rk-description reveal">
+          <p>A wide range of products offering reliance and safety to various fields are introduced, and each model can be searched from the Category, Target Gas or Product Search. Catalogs, operation manuals and specification sheets...etc. are available to download on the Product List and Product Detail pages.</p>
+        </div>
+        <div class="rk-link reveal">
+          <a href="http://www.rikenkeiki.co.jp/english" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-external-link-alt"></i> Visit rikenkeiki.co.jp for more information
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong style="color:#fff;">ANA<span style="color:#00e5ff;">Consultmar</span></strong>
+        <span style="margin-left:1rem; color:#4a607a;">© <span id="footerYear"></span></span>
+      </div>
+      <div>
+        <a href="mailto:info@anaconsultmar.com">
+          <i class="fas fa-envelope"></i> <span id="footerEmail">info@anaconsultmar.com</span>
+        </a>
+        <a href="https://www.facebook.com/anaconsultmar" target="_blank">
+          <i class="fab fa-facebook"></i> Facebook
+        </a>
+        <span style="color:#4a607a;"><span id="footerAddress">Cēsu street 31, Riga</span></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Shared scripts -->
+  <script src="../js/config.js"></script>
+  <script>
+    (function() {
+      // Populate footer from config
+      document.getElementById('footerYear').textContent = SITE_CONFIG.year;
+      document.getElementById('footerEmail').textContent = SITE_CONFIG.email;
+      document.getElementById('footerAddress').textContent = SITE_CONFIG.address;
+
+      // Mobile menu toggle
+      const toggle = document.getElementById('menuToggle');
+      const overlay = document.getElementById('mobileOverlay');
+      toggle.addEventListener('click', () => {
+        const isOpen = overlay.classList.toggle('open');
+        toggle.innerHTML = isOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+      overlay.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          overlay.classList.remove('open');
+          toggle.innerHTML = '<i class="fas fa-bars"></i>';
+          document.body.style.overflow = '';
+        });
+      });
+
+      // Sticky header
+      const header = document.getElementById('siteHeader');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 80) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
+      });
+
+      // Reveal animations
+      const revealElements = document.querySelectorAll('.reveal');
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+      revealElements.forEach(el => revealObserver.observe(el));
+    })();
+  </script>
+</body>
+</html>

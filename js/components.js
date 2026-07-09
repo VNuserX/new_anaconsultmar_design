@@ -1,25 +1,31 @@
+// components.js
 document.addEventListener('DOMContentLoaded', () => {
-  const paths = window.SITE_CONFIG?.paths || {};
+  const config = window.SITE_CONFIG || {};
+  const paths = config.paths || {};
 
-  fetch(paths.header || '/components/header.html')
+  function inject(placeholderId, html) {
+    const placeholder = document.getElementById(placeholderId);
+    if (placeholder) placeholder.outerHTML = html;
+  }
+
+  const headerPromise = fetch(paths.header || '/components/header.html')
     .then(res => {
-      if (!res.ok) throw new Error('Header not found');
+      if (!res.ok) throw new Error('Header fetch failed');
       return res.text();
     })
-    .then(html => {
-      const placeholder = document.getElementById('header-placeholder');
-      if (placeholder) placeholder.outerHTML = html;
-    })
-    .catch(err => console.warn('Header load failed:', err));
+    .then(html => inject('header-placeholder', html))
+    .catch(err => console.warn('Header load error:', err));
 
-  fetch(paths.footer || '/components/footer.html')
+  const footerPromise = fetch(paths.footer || '/components/footer.html')
     .then(res => {
-      if (!res.ok) throw new Error('Footer not found');
+      if (!res.ok) throw new Error('Footer fetch failed');
       return res.text();
     })
-    .then(html => {
-      const placeholder = document.getElementById('footer-placeholder');
-      if (placeholder) placeholder.outerHTML = html;
-    })
-    .catch(err => console.warn('Footer load failed:', err));
+    .then(html => inject('footer-placeholder', html))
+    .catch(err => console.warn('Footer load error:', err));
+
+  // When both are done, fire the custom event
+  Promise.all([headerPromise, footerPromise]).then(() => {
+    window.dispatchEvent(new Event('componentsReady'));
+  });
 });

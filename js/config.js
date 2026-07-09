@@ -1,5 +1,5 @@
 // config.js
-const BASE = '/new_anaconsultmar_design';   // change to '' in production
+const BASE = '';   // change to '' in production
 
 window.SITE_CONFIG = {
   company: {

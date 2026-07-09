@@ -5,7 +5,7 @@
   function buildFooter() {
     const container = document.getElementById('footerInner');
     if (!container) return;
-    const cfg = SITE_CONFIG;
+    const cfg = window.SITE_CONFIG;
     const year = cfg.copyright.autoYear ? new Date().getFullYear() : cfg.copyright.year;
 
     container.innerHTML =

@@ -999,3 +999,95 @@ body {
   transform: translateY(-2px);
   color: var(--color-accent-hover);
 }
+
+/* ============================================================
+   ABOUT PAGE
+   ============================================================ */
+.about-section {
+    padding: 5rem 0;
+    position: relative;
+    z-index: 1;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.about-text .section-label,
+.about-text .section-title {
+    margin-bottom: 1.5rem;
+}
+
+.about-list {
+    list-style: none;
+    margin-top: 2rem;
+}
+
+.about-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+    font-weight: var(--font-weight-light);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+}
+
+.about-list li i {
+    color: var(--color-accent);
+    font-size: 1.1rem;
+    margin-top: 0.2rem;
+    width: 1.2rem;
+    text-align: center;
+}
+
+.about-images {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+/* The second image (team photo) – put it first */
+.about-images img:nth-child(2) {
+    order: 1;
+    max-width: 450px;
+    width: 100%;
+    border-radius: var(--radius-card);
+    border: 1px solid var(--color-glass-border);
+    transition: transform var(--transition-smooth);
+}
+
+/* The first image (logo) – now below & smaller */
+.about-images img:nth-child(1) {
+    order: 2;
+    max-width: 180px;   /* smaller size */
+    width: 100%;
+    border-radius: var(--radius-card);
+    border: 1px solid var(--color-glass-border);
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(4px);
+    object-fit: contain;
+    transition: transform var(--transition-smooth);
+}
+
+.about-images img:hover {
+    transform: scale(1.02);
+}
+
+/* Responsive stacking */
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .about-images {
+        order: -1;   /* show images first on mobile */
+    }
+    .about-images img {
+        max-width: 100%;
+    }
+}

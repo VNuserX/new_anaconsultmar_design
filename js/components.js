@@ -1,22 +1,25 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // Use absolute paths starting with '/' so subfolders can find the components folder
-  const loadHeader = fetch("/components/header.html")
-    .then(res => res.text())
-    .then(html => {
-      const el = document.getElementById("header-placeholder");
-      if (el) el.outerHTML = html;
-    });
+document.addEventListener('DOMContentLoaded', () => {
+  const paths = window.SITE_CONFIG?.paths || {};
 
-  const loadFooter = fetch("/components/footer.html")
-    .then(res => res.text())
-    .then(html => {
-      const el = document.getElementById("footer-placeholder");
-      if (el) el.outerHTML = html;
-    });
-
-  Promise.all([loadHeader, loadFooter])
-    .then(() => {
-      window.dispatchEvent(new CustomEvent("componentsReady"));
+  fetch(paths.header || '/components/header.html')
+    .then(res => {
+      if (!res.ok) throw new Error('Header not found');
+      return res.text();
     })
-    .catch(err => console.error("Error loading HTML components:", err));
+    .then(html => {
+      const placeholder = document.getElementById('header-placeholder');
+      if (placeholder) placeholder.outerHTML = html;
+    })
+    .catch(err => console.warn('Header load failed:', err));
+
+  fetch(paths.footer || '/components/footer.html')
+    .then(res => {
+      if (!res.ok) throw new Error('Footer not found');
+      return res.text();
+    })
+    .then(html => {
+      const placeholder = document.getElementById('footer-placeholder');
+      if (placeholder) placeholder.outerHTML = html;
+    })
+    .catch(err => console.warn('Footer load failed:', err));
 });

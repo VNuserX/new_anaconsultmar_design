@@ -1,4 +1,7 @@
-const SITE_CONFIG = {
+// config.js
+const BASE = '/new_anaconsultmar_design';   // change to '' in production
+
+window.SITE_CONFIG = {
   company: {
     name: 'ANAConsultmar',
     logoPrefix: 'ANA',
@@ -14,6 +17,10 @@ const SITE_CONFIG = {
   },
   copyright: {
     year: 2026,
-    autoYear: true,   // set to false if you want a fixed year
+    autoYear: true,
   },
+  paths: {
+    header: BASE + '/components/header.html',
+    footer: BASE + '/components/footer.html',
+  }
 };

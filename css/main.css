@@ -875,3 +875,127 @@ body {
     height: 260px;
   }
 }
+/* ============================================================
+   RIKEN KEIKI PAGE – Intro, Custom Services Grid & Description
+   ============================================================ */
+.rk-section {
+  padding: 4rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.rk-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.rk-intro {
+  background: var(--color-bg-card);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-card);
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.rk-intro p {
+  font-size: 1.3rem;
+  color: var(--color-text-bright);
+}
+
+.rk-intro .highlight-brand {
+  color: var(--color-accent-hover);
+  font-weight: var(--font-weight-bold);
+}
+
+/* Styled inline menu checklist */
+.rk-services {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  padding: 0;
+}
+
+.rk-services li {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-glass-border);
+  border-radius: 1rem;
+  padding: 1.2rem 1.5rem;
+  font-size: 1.05rem;
+  color: var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: transform var(--transition-smooth), border-color var(--transition-smooth);
+}
+
+.rk-services li:hover {
+  border-color: var(--color-glass-border-hover);
+  transform: translateY(-3px);
+}
+
+.rk-services li i {
+  color: var(--color-accent);
+  font-size: 1.3rem;
+  width: 1.8rem;
+  text-align: center;
+}
+
+/* White boundary protective card box for the brand logo */
+.rk-logo {
+  text-align: center;
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--color-glass-border);
+  max-width: 400px;
+  margin: 0 auto;
+  box-shadow: var(--shadow-medium);
+}
+
+.rk-logo img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.rk-description {
+  text-align: center;
+  color: var(--color-text-primary);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  max-width: 800px;
+  margin: 0 auto;
+  font-weight: var(--font-weight-light);
+}
+
+.rk-link {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.rk-link a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--color-text-bright);
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
+  padding: 0.9rem 2.5rem;
+  border-radius: 60px;
+  border: 1px solid var(--color-glass-border);
+  background: var(--color-bg-card);
+  transition: all var(--transition-smooth);
+}
+
+.rk-link a:hover {
+  border-color: var(--color-accent);
+  background: rgba(14, 165, 233, 0.05);
+  transform: translateY(-2px);
+  color: var(--color-accent-hover);
+}

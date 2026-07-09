@@ -1052,7 +1052,7 @@ body {
 }
 
 /* The second image (team photo) – put it first */
-.about-images img:nth-child(2) {
+.about-images img:nth-child(1) {
     order: 1;
     max-width: 450px;
     width: 100%;
@@ -1062,7 +1062,7 @@ body {
 }
 
 /* The first image (logo) – now below & smaller */
-.about-images img:nth-child(1) {
+.about-images img:nth-child(2) {
     order: 2;
     max-width: 180px;   /* smaller size */
     width: 100%;
@@ -1089,5 +1089,62 @@ body {
     }
     .about-images img {
         max-width: 100%;
+    }
+}
+/* ============================================================
+   CERTIFICATES SECTION
+   ============================================================ */
+.certificates-section {
+    padding: 5rem 0;
+    position: relative;
+    z-index: 1;
+    background: var(--color-bg-secondary, #f8faff);
+}
+
+.certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+}
+
+.certificate-item {
+    background: var(--color-bg-card, #fff);
+    border-radius: var(--radius-card, 1.5rem);
+    border: 1px solid var(--color-glass-border, rgba(0,0,0,0.06));
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.certificate-item:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-heavy, 0 12px 30px rgba(0,0,0,0.1));
+    border-color: var(--color-glass-border-hover, rgba(14,165,233,0.3));
+}
+
+.certificate-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Optional caption (if you want to add alt text) */
+.certificate-caption {
+    padding: 0.8rem 1rem;
+    font-size: 0.85rem;
+    color: var(--color-text-muted, #4a607a);
+    text-align: center;
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(4px);
+}
+
+@media (max-width: 600px) {
+    .certificates-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     }
 }

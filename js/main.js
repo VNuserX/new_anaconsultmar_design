@@ -45,30 +45,34 @@
     setHref('contactEmailLink', 'mailto:' + contact.email);
   }
 
-  // ---------- Mobile menu ----------
-  const toggle = document.getElementById('menuToggle');
-  const overlay = document.getElementById('mobileOverlay');
-  if (toggle && overlay) {
-    toggle.addEventListener('click', () => {
-      const isOpen = overlay.classList.toggle('open');
-      toggle.innerHTML = isOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-    });
-    overlay.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        overlay.classList.remove('open');
-        toggle.innerHTML = '<i class="fas fa-bars"></i>';
-        document.body.style.overflow = '';
+  // ---------- Header & Mobile menu setup ----------
+  // Wrapped inside a function so elements are selected AFTER HTML injection
+  function initHeaderAndMenu() {
+    const toggle = document.getElementById('menuToggle');
+    const overlay = document.getElementById('mobileOverlay');
+    
+    if (toggle && overlay) {
+      toggle.addEventListener('click', () => {
+        const isOpen = overlay.classList.toggle('open');
+        toggle.innerHTML = isOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        document.body.style.overflow = isOpen ? 'hidden' : '';
       });
+      
+      overlay.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          overlay.classList.remove('open');
+          toggle.innerHTML = '<i class="fas fa-bars"></i>';
+          document.body.style.overflow = '';
+        });
+      });
+    }
+
+    const header = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => {
+      if (!header) return;
+      header.classList.toggle('scrolled', window.scrollY > 80);
     });
   }
-
-  // ---------- Sticky header ----------
-  const header = document.getElementById('siteHeader');
-  window.addEventListener('scroll', () => {
-    if (!header) return;
-    header.classList.toggle('scrolled', window.scrollY > 80);
-  });
 
   // ---------- Scroll reveal ----------
   const revealElements = document.querySelectorAll('.reveal');
@@ -81,11 +85,10 @@
     revealElements.forEach(el => revealObserver.observe(el));
   }
 
-  // ---------- Run on page load ----------
+  // ---------- Run core page layout logic immediately ----------
   window.addEventListener('DOMContentLoaded', () => {
-    buildFooter();
     populateContactPage();
-    // Highlight current page if needed (optional)
+    
     const currentPage = document.body.dataset.page;
     if (currentPage) {
       document.querySelectorAll('[data-nav]').forEach(link => {
@@ -96,4 +99,11 @@
       });
     }
   });
+
+  // ---------- Run injected logic ONLY when header/footer are ready ----------
+  window.addEventListener('componentsReady', () => {
+    buildFooter();
+    initHeaderAndMenu();
+  });
+
 })();

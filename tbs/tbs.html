@@ -1,170 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Bruusgaard System – ANAConsultmar</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Bruusgaard System – ANAConsultmar</title>
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-  <!-- Light theme stylesheets -->
-  <link rel="stylesheet" href="../css/main.css" />
-  <link rel="stylesheet" href="../css/light-theme.css" />
+    <!-- Shared stylesheets -->
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/light-theme.css" />
+
+    <style>
+        /* Vertical stacked layout with larger cabinet images */
+        .tbs-gallery {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            gap: 2.2rem !important;
+            max-width: 850px !important;   /* wider container to allow bigger pictures */
+            margin: 0 auto !important;
+        }
+
+        /* All images start block */
+        .tbs-gallery img {
+            display: block !important;
+            height: auto !important;
+            border-radius: 12px !important;
+            object-fit: contain !important;
+        }
+
+        /* Cabinet images (not the logo) become large */
+        .tbs-gallery img:not(.logo-img) {
+            width: 100% !important;
+            max-width: 780px !important;   /* significantly bigger than previous 500px */
+        }
+
+        /* Logo keeps a modest size */
+        .tbs-gallery img.logo-img {
+            max-width: 260px !important;
+            width: 100% !important;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 900px) {
+            .tbs-gallery {
+                max-width: 100% !important;
+                padding: 0 1rem !important;
+            }
+            .tbs-gallery img:not(.logo-img) {
+                max-width: 100% !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tbs-gallery img.logo-img {
+                max-width: 190px !important;
+            }
+        }
+    </style>
 </head>
 <body data-page="tbs">
 
-  <!-- Particles (light-friendly) -->
-  <div class="particles">
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-  </div>
-
-  <!-- ============================== -->
-  <!-- MOBILE OVERLAY                  -->
-  <!-- ============================== -->
-  <div class="mobile-overlay" id="mobileOverlay">
-    <ul>
-      <li><a href="../" data-nav="home">Home</a></li>
-      <li><a href="../about/about.html" data-nav="about">About Us</a></li>
-      <li><a href="../services/services.html" data-nav="services">Services</a></li>
-      <li><a href="../tbs/tbs.html" data-nav="tbs">TBS</a></li>
-      <li><a href="../riken-keiki/riken-keiki.html" data-nav="riken-keiki">Riken Keiki</a></li>
-      <li><a href="#" data-nav="partners">Partners</a></li>
-      <li><a href="../training/training.html" data-nav="training">Training</a></li>
-      <li><a href="../contact/contact.html" data-nav="contact" style="color:#00e5ff;">Contact</a></li>
-    </ul>
-  </div>
-
-  <!-- ============================== -->
-  <!-- HEADER                          -->
-  <!-- ============================== -->
-  <header class="site-header" id="siteHeader">
-    <a href="../" class="logo">ANA<span>Consultmar</span></a>
-    <ul class="nav-links">
-      <li><a href="../" data-nav="home">Home</a></li>
-      <li><a href="../about/about.html" data-nav="about">About Us</a></li>
-      <li><a href="../services/services.html" data-nav="services">Services</a></li>
-      <li class="current-page"><a href="../tbs/tbs.html" data-nav="tbs">TBS</a></li>
-      <li><a href="../riken-keiki/riken-keiki.html" data-nav="riken-keiki">Riken Keiki</a></li>
-      <li><a href="#" data-nav="partners">Partners</a></li>
-      <li><a href="../training/training.html" data-nav="training">Training</a></li>
-      <li><a href="../contact/contact.html" data-nav="contact" class="nav-cta">Contact</a></li>
-    </ul>
-    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-      <i class="fas fa-bars"></i>
-    </button>
-  </header>
-
-  <!-- Page banner -->
-  <section class="page-banner">
-    <div class="banner-bg"></div>
-    <div class="container">
-      <h1>The Bruusgaard System</h1>
-      <div class="breadcrumb"><a href="../">Home</a> / The Bruusgaard System</div>
+    <!-- Light Theme Ambient Particles -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
     </div>
-  </section>
 
-  <!-- TBS content -->
-  <section class="tbs-section">
-    <div class="container">
-      <div class="tbs-intro reveal">
-        <p><strong>We cooperate with Norwegian company <span style="color:#00e5ff;">Martin Bruusgaard AS</span> and support The Bruusgaard System (TBS).</strong></p>
-        <ul>
-          <li><i class="fas fa-tools"></i> Service of instruments (Riken Keiki, RAE, Gastec)</li>
-          <li><i class="fas fa-chalkboard-teacher"></i> Training of personnel engaged with these instruments</li>
-        </ul>
-      </div>
-      <div class="tbs-gallery reveal">
-        <img src="https://anaconsultmar.com/wp-content/uploads/2018/10/Cabinet-closed-2.jpg" alt="TBS Cabinet closed" loading="lazy" />
-        <img src="https://anaconsultmar.com/wp-content/uploads/2018/10/Cabinet-complete-4.jpg" alt="TBS Cabinet complete" loading="lazy" />
-        <img src="https://anaconsultmar.com/wp-content/uploads/2018/10/MB-logo.jpg" alt="Martin Bruusgaard logo" loading="lazy" class="logo-img" />
-      </div>
-      <div class="tbs-link reveal">
-        <a href="http://bruusgaard.no/" target="_blank" rel="noopener noreferrer">
-          <i class="fas fa-external-link-alt"></i> Visit bruusgaard.no for more information
-        </a>
-      </div>
-    </div>
-  </section>
+    <!-- Dynamic Header Component Placeholder -->
+    <div id="header-placeholder"></div>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>
-        <strong style="color:#1a3c6e;">ANA<span style="color:#00e5ff;">Consultmar</span></strong>
-        <span style="margin-left:1rem; color:#4a607a;">© <span id="footerYear"></span></span>
-      </div>
-      <div>
-        <a href="mailto:info@anaconsultmar.com">
-          <i class="fas fa-envelope"></i> <span id="footerEmail">info@anaconsultmar.com</span>
-        </a>
-        <a href="https://www.facebook.com/anaconsultmar" target="_blank">
-          <i class="fab fa-facebook"></i> Facebook
-        </a>
-        <span style="color:#4a607a;"><span id="footerAddress">Cēsu street 31, Riga</span></span>
-      </div>
-    </div>
-  </footer>
+    <!-- Page Banner Section -->
+    <section class="page-banner">
+        <div class="banner-bg"></div>
+        <div class="container">
+            <h1>The Bruusgaard System</h1>
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a> / The Bruusgaard System
+            </div>
+        </div>
+    </section>
 
-  <!-- Scripts -->
-  <script src="../js/config.js"></script>
-  <script>
-    (function() {
-      // Fallback if SITE_CONFIG is not loaded
-      var cfg = window.SITE_CONFIG || {
-        year: '2026',
-        email: 'info@anaconsultmar.com',
-        address: 'Cēsu street 31, Riga'
-      };
+    <!-- TBS Content Alignment Section -->
+    <section class="tbs-section">
+        <div class="container">
 
-      document.getElementById('footerYear').textContent = cfg.year;
-      document.getElementById('footerEmail').textContent = cfg.email;
-      document.getElementById('footerAddress').textContent = cfg.address;
+            <!-- Top Intro Block -->
+            <div class="tbs-intro reveal">
+                <p>We cooperate with Norwegian company <span style="color: var(--color-accent-hover); font-weight: 700;">Martin Bruusgaard AS</span> and support The Bruusgaard System (TBS).</p>
+                <ul>
+                    <li><i class="fas fa-tools"></i> Service of instruments (Riken Keiki, RAE, Gastec)</li>
+                    <li><i class="fas fa-chalkboard-teacher"></i> Training of personnel engaged with these instruments</li>
+                </ul>
+            </div>
 
-      // Mobile menu
-      var toggle = document.getElementById('menuToggle');
-      var overlay = document.getElementById('mobileOverlay');
-      if (toggle && overlay) {
-        toggle.addEventListener('click', function () {
-          var isOpen = overlay.classList.toggle('open');
-          toggle.innerHTML = isOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-          document.body.style.overflow = isOpen ? 'hidden' : '';
-        });
-        overlay.querySelectorAll('a').forEach(function (link) {
-          link.addEventListener('click', function () {
-            overlay.classList.remove('open');
-            toggle.innerHTML = '<i class="fas fa-bars"></i>';
-            document.body.style.overflow = '';
-          });
-        });
-      }
+            <!-- 3-Column Image Gallery – Now vertical, cabinet pictures much larger -->
+            <div class="tbs-gallery reveal">
+                <img src="https://anaconsultmar.com/wp-content/uploads/2018/10/Cabinet-closed-2.jpg" alt="TBS Cabinet closed" loading="lazy" />
+                <img src="https://anaconsultmar.com/wp-content/uploads/2018/10/Cabinet-complete-4.jpg" alt="TBS Cabinet complete" loading="lazy" />
+                <!-- Logo stays compact -->
+                <img src="https://anaconsultmar.com/wp-content/uploads/2018/10/MB-logo.jpg" alt="Martin Bruusgaard logo" loading="lazy" class="logo-img" />
+            </div>
 
-      // Sticky header
-      var header = document.getElementById('siteHeader');
-      if (header) {
-        window.addEventListener('scroll', function () {
-          if (window.scrollY > 80) header.classList.add('scrolled');
-          else header.classList.remove('scrolled');
-        });
-      }
+            <!-- Bottom Call To Action Link -->
+            <div class="tbs-link reveal">
+                <a href="http://bruusgaard.no/" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-external-link-alt"></i> Visit bruusgaard.no for more information
+                </a>
+            </div>
 
-      // Reveal animations
-      var revealElements = document.querySelectorAll('.reveal');
-      if (revealElements.length) {
-        var revealObserver = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) entry.target.classList.add('visible');
-          });
-        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
-        revealElements.forEach(function (el) { revealObserver.observe(el); });
-      }
-    })();
-  </script>
+        </div>
+    </section>
+
+    <!-- Dynamic Footer Component Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Central Orchestration Scripts -->
+    <script src="../js/config.js"></script>
+    <script src="../js/components.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 </html>

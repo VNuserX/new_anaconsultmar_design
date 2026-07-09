@@ -1,19 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Load header
-  fetch("/components/header.html")
+  // Use absolute paths starting with '/' so subfolders can find the components folder
+  const loadHeader = fetch("/components/header.html")
     .then(res => res.text())
     .then(html => {
-      document.getElementById("header-placeholder").outerHTML = html;
-      // Re‑attach any event listeners that main.js needs (e.g., menu toggle)
-      // You can either call a setup function from main.js or let main.js
-      // use event delegation on the body.
+      const el = document.getElementById("header-placeholder");
+      if (el) el.outerHTML = html;
     });
 
-  // Load footer
-  fetch("/components/footer.html")
+  const loadFooter = fetch("/components/footer.html")
     .then(res => res.text())
     .then(html => {
-      document.getElementById("footer-placeholder").outerHTML = html;
-      buildFooter(); // your existing footer‑population function
+      const el = document.getElementById("footer-placeholder");
+      if (el) el.outerHTML = html;
     });
+
+  Promise.all([loadHeader, loadFooter])
+    .then(() => {
+      window.dispatchEvent(new CustomEvent("componentsReady"));
+    })
+    .catch(err => console.error("Error loading HTML components:", err));
 });

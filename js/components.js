@@ -24,8 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(html => inject('footer-placeholder', html))
     .catch(err => console.warn('Footer load error:', err));
 
-  // When both are done, fire the custom event
   Promise.all([headerPromise, footerPromise]).then(() => {
+    // links are now in the DOM → fix them
+    if (typeof fixAbsoluteLinks === 'function') fixAbsoluteLinks();
+    // then fire the ready event
     window.dispatchEvent(new Event('componentsReady'));
   });
 });
+

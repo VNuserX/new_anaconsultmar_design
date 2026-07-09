@@ -1,7 +1,9 @@
 // config.js
-const BASE = '/new_anaconsultmar_design';   // change to '' in production
+const BASE = '/new_anaconsultmar_design';
+// const BASE = ''; //for local
 
 window.SITE_CONFIG = {
+  base: BASE,
   company: {
     name: 'ANAConsultmar',
     logoPrefix: 'ANA',

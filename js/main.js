@@ -107,3 +107,16 @@
   });
 
 })();
+function fixAbsoluteLinks() {
+  if (!window.SITE_CONFIG || !window.SITE_CONFIG.base) return;
+  const base = window.SITE_CONFIG.base;
+  document.querySelectorAll('a[href^="/"]').forEach(link => {
+    // Don't touch external links (like https://...)
+    const href = link.getAttribute('href');
+    if (href.startsWith('//')) return;
+    link.setAttribute('href', base + href);
+  });
+}
+
+// Run it as soon as the DOM is ready (for static links)
+document.addEventListener('DOMContentLoaded', fixAbsoluteLinks);

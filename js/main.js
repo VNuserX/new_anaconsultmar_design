@@ -30,8 +30,13 @@
     });
   };
 
-  // Run once on DOM ready for static content
-  document.addEventListener('DOMContentLoaded', window.fixAbsoluteLinks);
+  // Run fixAbsoluteLinks as soon as possible:
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', window.fixAbsoluteLinks);
+  } else {
+    // DOM is already loaded – run now
+    window.fixAbsoluteLinks();
+  }
 
   // ---------- Build footer ----------
   function buildFooter() {

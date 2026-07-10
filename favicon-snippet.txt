@@ -1,0 +1,9 @@
+<script>
+  (function() {
+    var base = (window.SITE_CONFIG && window.SITE_CONFIG.base) || '';
+    var link = document.createElement('link');
+    link.rel = 'icon';
+    link.href = base + '/assets/images/favicon.jpg';
+    document.head.appendChild(link);
+  })();
+</script>

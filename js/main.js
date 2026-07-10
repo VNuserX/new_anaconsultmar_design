@@ -1,6 +1,38 @@
 (function () {
   'use strict';
 
+  // Attach to window so components.js can call it after injections
+  window.fixAbsoluteLinks = function () {
+    if (!window.SITE_CONFIG || !window.SITE_CONFIG.base) return;
+    const base = window.SITE_CONFIG.base;
+
+    const needsFixing = (val) =>
+      val && val.startsWith('/') && !val.startsWith('//') && !val.startsWith(base + '/');
+
+    document.querySelectorAll('[src^="/"], [href^="/"]').forEach(el => {
+      ['src', 'href'].forEach(attr => {
+        const val = el.getAttribute(attr);
+        if (needsFixing(val)) {
+          el.setAttribute(attr, base + val);
+        }
+      });
+    });
+
+    document.querySelectorAll('[style*="url(\'/"]').forEach(el => {
+      const style = el.getAttribute('style');
+      if (style) {
+        const fixed = style.replace(/url\(['"]?(\/[^)'"]+)['"]?\)/g, (match, path) => {
+          if (path.startsWith('//') || path.startsWith(base + '/')) return match;
+          return `url('${base}${path}')`;
+        });
+        el.setAttribute('style', fixed);
+      }
+    });
+  };
+
+  // Run once on DOM ready for static content
+  document.addEventListener('DOMContentLoaded', window.fixAbsoluteLinks);
+
   // ---------- Build footer ----------
   function buildFooter() {
     const container = document.getElementById('footerInner');
@@ -46,7 +78,6 @@
   }
 
   // ---------- Header & Mobile menu setup ----------
-  // Wrapped inside a function so elements are selected AFTER HTML injection
   function initHeaderAndMenu() {
     const toggle = document.getElementById('menuToggle');
     const overlay = document.getElementById('mobileOverlay');
@@ -107,16 +138,3 @@
   });
 
 })();
-function fixAbsoluteLinks() {
-  if (!window.SITE_CONFIG || !window.SITE_CONFIG.base) return;
-  const base = window.SITE_CONFIG.base;
-  document.querySelectorAll('a[href^="/"]').forEach(link => {
-    // Don't touch external links (like https://...)
-    const href = link.getAttribute('href');
-    if (href.startsWith('//')) return;
-    link.setAttribute('href', base + href);
-  });
-}
-
-// Run it as soon as the DOM is ready (for static links)
-document.addEventListener('DOMContentLoaded', fixAbsoluteLinks);

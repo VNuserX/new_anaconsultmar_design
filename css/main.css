@@ -1214,3 +1214,27 @@ body {
   opacity: 1;
   visibility: visible;
 }
+
+/* ============================================================
+   PARTNER LOGOS – constrain their size
+   ============================================================ */
+[data-page="lapa"] .about-images img,
+[data-page="km-ship"] .about-images img,
+[data-page="makarov"] .about-images img {
+    max-width: 200px;      /* adjust this value as needed */
+    width: 100%;
+    height: auto;
+    margin: 0 auto;        /* centre the image if it's alone */
+    border-radius: var(--radius-card);
+    border: 1px solid var(--color-glass-border);
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(4px);
+    object-fit: contain;
+    transition: transform var(--transition-smooth);
+}
+
+[data-page="lapa"] .about-images img:hover,
+[data-page="km-ship"] .about-images img:hover,
+[data-page="makarov"] .about-images img:hover {
+    transform: scale(1.05);
+}

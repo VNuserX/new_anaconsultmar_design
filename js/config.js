@@ -1,6 +1,6 @@
 // config.js
 const BASE = '/new_anaconsultmar_design';
-// const BASE = ''; //for local
+//const BASE = ''; //for local
 
 window.SITE_CONFIG = {
   base: BASE,

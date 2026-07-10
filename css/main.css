@@ -1224,7 +1224,7 @@ body {
     max-width: 200px;      /* adjust this value as needed */
     width: 100%;
     height: auto;
-    margin: 0 auto 0 0;
+    margin: 0 auto;
     border-radius: var(--radius-card);
     border: 1px solid var(--color-glass-border);
     background: rgba(255,255,255,0.8);
@@ -1237,4 +1237,9 @@ body {
 [data-page="km-ship"] .about-images img:hover,
 [data-page="makarov"] .about-images img:hover {
     transform: scale(1.05);
+}
+
+.url-highlight {
+  color: #3431a5;                     /* or any brand colour */
+  font-weight: var(--font-weight-semibold);  /* optional */
 }

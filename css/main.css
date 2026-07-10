@@ -1148,3 +1148,69 @@ body {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     }
 }
+
+/* ----- DROPDOWN MENU (Partners) ----- */
+.nav-links .has-dropdown {
+  position: relative;
+}
+
+.nav-links .has-dropdown > a::after {
+  display: none;                /* remove the normal underline */
+}
+
+.nav-links .has-dropdown .fa-chevron-down {
+  font-size: 0.65rem;
+  margin-left: 0.3rem;
+  transition: transform var(--transition-smooth);
+}
+
+.nav-links .has-dropdown:hover .fa-chevron-down {
+  transform: rotate(180deg);
+}
+
+.nav-links .dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-glass-border);
+  border-radius: 1.2rem;
+  padding: 0.6rem 0;
+  min-width: 260px;
+  list-style: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.25s ease;
+  box-shadow: var(--shadow-medium);
+  z-index: 1000;
+}
+
+.nav-links .has-dropdown:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.nav-links .dropdown li a {
+  display: block;
+  padding: 0.5rem 1.4rem;
+  color: #4a5a6a;
+  font-weight: var(--font-weight-regular);
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+.nav-links .dropdown li a:hover {
+  background: rgba(14,165,233,0.08);
+  color: var(--color-text-bright);
+}
+
+/* Keep dropdown visible when hovering over it */
+.nav-links .has-dropdown:hover .dropdown,
+.nav-links .dropdown:hover {
+  opacity: 1;
+  visibility: visible;
+}

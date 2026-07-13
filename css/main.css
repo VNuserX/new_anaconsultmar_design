@@ -749,6 +749,30 @@ body {
   overflow: hidden;
   border: 1px solid var(--color-glass-border);
 }
+.services-section {
+   padding: 3rem 0;            /* reduce top/bottom padding */
+ }
+
+ .services-grid {
+   gap: 1.25rem;               /* tighter gap between cards */
+ }
+
+ .service-card {
+   padding: 1.5rem 1.2rem;     /* less internal padding */
+ }
+
+ .service-card h4 {
+   font-size: 1.25rem;         /* slightly smaller heading */
+ }
+
+ .service-card p {
+   font-size: 0.9rem;          /* reduce text size */
+ }
+
+ /* Centre the header text */
+ .services-section .section-title {
+   text-align: center;
+ }
 
 /* Optional: remove border-radius on small screens if you prefer straight edges */
 @media (max-width: 768px) {
@@ -765,6 +789,12 @@ body {
   .contact-photo {
     height: 250px;
     order: -1; /* photo above details on mobile */
+  }
+  .page-banner {
+    padding: 6rem 0 2.5rem;     /* was 10rem 0 4rem */
+  }
+  .page-banner h1 {
+    font-size: 2.2rem;
   }
 }
 
@@ -885,128 +915,150 @@ body {
   }
 }
 /* ============================================================
-   RIKEN KEIKI PAGE – Intro, Custom Services Grid & Description
+   RIKEN KEIKI PAGE
    ============================================================ */
+
+/* Make the body a flex column that fills the screen */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;               /* full viewport height */
+}
+
+/* Let the main content grow and push the footer down */
+#header-placeholder,
+.site-header,
+.page-banner,
+.rk-section,
+.services-section,
+.about-section,
+.bento-section,
+.certificates-section,
+.contact-section,
+.hero {
+  flex-shrink: 0;                  /* prevent sections from shrinking */
+}
+
+/* The footer placeholder (and the footer itself after injection) */
+#footer-placeholder,
+.site-footer {
+  margin-top: auto;                /* push to the bottom */
+}
+
+/* ---- Riken Keiki specific styling ---- */
 .rk-section {
   padding: 4rem 0;
   position: relative;
   z-index: 1;
+  flex: 1 0 auto;                 /* ensure it can grow */
 }
 
 .rk-content {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-  max-width: 900px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
 .rk-intro {
-  background: var(--color-bg-card);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid var(--color-glass-border);
-  border-radius: var(--radius-card);
-  padding: 2.5rem;
-  text-align: center;
-}
-
-.rk-intro p {
   font-size: 1.3rem;
-  color: var(--color-text-bright);
+  font-weight: var(--font-weight-light);
+  color: var(--color-text-primary);
+  text-align: center;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
 }
 
-.rk-intro .highlight-brand {
-  color: var(--color-accent-hover);
-  font-weight: var(--font-weight-bold);
+.highlight-brand {
+  color: var(--color-accent);
+  font-weight: var(--font-weight-semibold);
 }
 
-/* Styled inline menu checklist */
 .rk-services {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
-  padding: 0;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+  margin-bottom: 2.5rem;
 }
 
 .rk-services li {
   background: var(--color-bg-card);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   border: 1px solid var(--color-glass-border);
-  border-radius: 1rem;
-  padding: 1.2rem 1.5rem;
-  font-size: 1.05rem;
-  color: var(--color-text-primary);
+  border-radius: var(--radius-card);
+  padding: 1rem 1.4rem;
   display: flex;
   align-items: center;
-  gap: 1rem;
-  transition: transform var(--transition-smooth), border-color var(--transition-smooth);
+  gap: 0.7rem;
+  font-weight: var(--font-weight-light);
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
 }
 
 .rk-services li:hover {
-  border-color: var(--color-glass-border-hover);
-  transform: translateY(-3px);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-medium);
 }
 
 .rk-services li i {
   color: var(--color-accent);
-  font-size: 1.3rem;
-  width: 1.8rem;
+  font-size: 1.2rem;
+  width: 1.5rem;
   text-align: center;
 }
 
-/* White boundary protective card box for the brand logo */
 .rk-logo {
   text-align: center;
-  background: #ffffff;
-  padding: 2.5rem;
-  border-radius: var(--radius-card);
-  border: 1px solid var(--color-glass-border);
-  max-width: 400px;
-  margin: 0 auto;
-  box-shadow: var(--shadow-medium);
+  margin-bottom: 2.5rem;
 }
 
 .rk-logo img {
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
+  max-width: 240px;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 1.2rem;
+  padding: 0.8rem;
+  border: 1px solid var(--color-glass-border);
 }
 
 .rk-description {
-  text-align: center;
-  color: var(--color-text-primary);
-  font-size: 1.1rem;
-  line-height: 1.7;
-  max-width: 800px;
-  margin: 0 auto;
+  color: var(--color-text-muted);
   font-weight: var(--font-weight-light);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
 .rk-link {
   text-align: center;
-  margin-top: 1rem;
 }
 
 .rk-link a {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
-  color: var(--color-text-bright);
-  font-weight: var(--font-weight-bold);
+  gap: 0.5rem;
+  color: var(--color-accent);
+  font-weight: var(--font-weight-semibold);
   text-decoration: none;
-  padding: 0.9rem 2.5rem;
-  border-radius: 60px;
-  border: 1px solid var(--color-glass-border);
-  background: var(--color-bg-card);
-  transition: all var(--transition-smooth);
+  padding: 0.7rem 1.8rem;
+  border: 1px solid var(--color-accent);
+  border-radius: 50px;
+  transition: background 0.3s, color 0.3s;
 }
 
 .rk-link a:hover {
-  border-color: var(--color-accent);
-  background: rgba(14, 165, 233, 0.05);
-  transform: translateY(-2px);
-  color: var(--color-accent-hover);
+  background: var(--color-accent);
+  color: #fff;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .rk-intro {
+    font-size: 1.1rem;
+  }
+  .rk-logo img {
+    max-width: 180px;
+  }
 }
 
 /* ============================================================

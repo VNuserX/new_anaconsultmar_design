@@ -83,58 +83,69 @@
   }
 
   // ---------- Header & Mobile menu setup ----------
-  function initHeaderAndMenu() {
-    const toggle = document.getElementById('menuToggle');
-    const overlay = document.getElementById('mobileOverlay');
+function initHeaderAndMenu() {
+  const toggle = document.getElementById('menuToggle');
+  const overlay = document.getElementById('mobileOverlay');
+  
+  if (toggle && overlay) {
+    toggle.addEventListener('click', () => {
+      const isOpen = overlay.classList.toggle('open');
+      toggle.innerHTML = isOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
     
-    if (toggle && overlay) {
-      toggle.addEventListener('click', () => {
-        const isOpen = overlay.classList.toggle('open');
-        toggle.innerHTML = isOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-        document.body.style.overflow = isOpen ? 'hidden' : '';
+    // Close overlay when a regular link is clicked
+    overlay.querySelectorAll('a:not(.submenu-toggle a)').forEach(link => {   // exclude parent partners/training links? actually we want them to close too, but we need to keep submenu open if desired. We'll refine: close on any link except the parent link if the submenu is open? Simpler: close on all links, but the parent link will still navigate.
+      link.addEventListener('click', () => {
+        overlay.classList.remove('open');
+        toggle.innerHTML = '<i class="fas fa-bars"></i>';
+        document.body.style.overflow = '';
       });
-      
-      overlay.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          overlay.classList.remove('open');
-          toggle.innerHTML = '<i class="fas fa-bars"></i>';
-          document.body.style.overflow = '';
-        });
-      });
-    }
+    });
 
-    const header = document.getElementById('siteHeader');
-    window.addEventListener('scroll', () => {
-      if (!header) return;
-      header.classList.toggle('scrolled', window.scrollY > 80);
+    // Toggle submenus
+    overlay.querySelectorAll('.toggle-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+        const li = btn.closest('.has-submenu');
+        if (li) li.classList.toggle('open');
+      });
     });
   }
-
-  // ---------- Scroll reveal ----------
-  const revealElements = document.querySelectorAll('.reveal');
-  if (revealElements.length) {
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
-    revealElements.forEach(el => revealObserver.observe(el));
-  }
-
-  // ---------- Run core page layout logic immediately ----------
-  window.addEventListener('DOMContentLoaded', () => {
-    populateContactPage();
-    
-    const currentPage = document.body.dataset.page;
-    if (currentPage) {
-      document.querySelectorAll('[data-nav]').forEach(link => {
-        const li = link.closest('li');
-        if (li && link.dataset.nav === currentPage) {
-          li.classList.add('current-page');
+          const header = document.getElementById('siteHeader');
+          window.addEventListener('scroll', () => {
+            if (!header) return;
+            header.classList.toggle('scrolled', window.scrollY > 80);
+          });
         }
-      });
-    }
-  });
+
+        // ---------- Scroll reveal ----------
+        const revealElements = document.querySelectorAll('.reveal');
+        if (revealElements.length) {
+          const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+          }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+          revealElements.forEach(el => revealObserver.observe(el));
+        }
+
+        // ---------- Run core page layout logic immediately ----------
+        window.addEventListener('DOMContentLoaded', () => {
+          populateContactPage();
+          
+          const currentPage = document.body.dataset.page;
+          if (currentPage) {
+            document.querySelectorAll('[data-nav]').forEach(link => {
+              const li = link.closest('li');
+              if (li && link.dataset.nav === currentPage) {
+                li.classList.add('current-page');
+              }
+            });
+          }
+        });
+        //
 
   // ---------- Run injected logic ONLY when header/footer are ready ----------
   window.addEventListener('componentsReady', () => {

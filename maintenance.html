@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Under Maintenance – ANAConsultmar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/font-awesome/css/all.min.css" />
+  <style>
+    :root {
+      --color-accent: #0ea5e9;
+      --color-text-bright: #1e293b;
+      --color-text-muted: #64748b;
+      --color-bg-primary: #f8fafc;
+    }
+    body {
+      margin: 0;
+      font-family: 'Outfit', sans-serif;
+      background: var(--color-bg-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+    .container {
+      text-align: center;
+      z-index: 1;
+      position: relative;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: clamp(3rem, 10vw, 6rem);
+      font-weight: 900;
+      color: var(--color-text-bright);
+      margin: 0;
+    }
+    .highlight {
+      color: var(--color-accent);
+    }
+    p {
+      font-size: 1.2rem;
+      color: var(--color-text-muted);
+      margin: 1rem 0 2rem;
+      font-weight: 300;
+    }
+    .icon-large {
+      font-size: 5rem;
+      color: var(--color-accent);
+      margin-bottom: 1rem;
+    }
+    .particles {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(14,165,233,0.08);
+      animation: float 20s infinite alternate;
+    }
+    .particle:nth-child(1) { width: 400px; height: 400px; top: -10%; left: -10%; }
+    .particle:nth-child(2) { width: 300px; height: 300px; bottom: -5%; right: -5%; }
+    .particle:nth-child(3) { width: 200px; height: 200px; top: 40%; left: 30%; }
+    @keyframes float {
+      0% { transform: translate(0,0) scale(1); }
+      100% { transform: translate(40px,-30px) scale(1.05); }
+    }
+  </style>
+</head>
+<body>
+  <div class="particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+  <div class="container">
+    <div class="icon-large"><i class="fas fa-tools"></i></div>
+    <h1>We'll be<br><span class="highlight">back soon</span></h1>
+    <p>ANAConsultmar is currently undergoing scheduled maintenance.<br>Please check back in a few minutes.</p>
+  </div>
+</body>
+</html>

@@ -246,7 +246,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8rem 0 4rem;
+  padding: 8rem 0 6rem;   /* was 8rem 0 4rem */
   background: var(--hero-bg-gradient);
   text-align: center;
 }
@@ -327,6 +327,15 @@ body {
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.hero-indicators button .dot-label {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
 }
 
 .btn-primary {

@@ -49,18 +49,27 @@
       <div class="section-label">Excellence in Maritime</div>
       <h1>Safety.<br /><span class="line2">Quality.</span><br />Environment.</h1>
       <p>Improving and promoting safety, quality and environment protection in the maritime industry – sharing our experience and knowledge in a sustainable and responsible way.</p>
-      <div class="hero-btns">
-        <a href="/services/services.html" class="btn-primary">Explore Services</a>
-        <a href="/contact/contact.html" class="btn-outline">Get in Touch</a>
+
+          <div class="hero-btns">
+              <a href="/services/services.html" class="btn-primary">Explore Services</a>
+              <!--<a href="/contact/contact.html" class="btn-outline">Get in Touch</a>-->
+          </div>
       </div>
-    </div>
+    </div>  <!-- END .hero-content -->
+
     <div class="hero-indicators" id="heroIndicators">
-      <button class="active" data-index="0"></button>
-      <button data-index="1"></button>
-      <button data-index="2"></button>
-      <button data-index="3"></button>
+      <button class="active" data-scroll-to="hero">
+        <span class="dot-label">Home</span>
+      </button>
+      <button data-scroll-to="mission">
+        <span class="dot-label">Mission</span>
+      </button>
+      <button data-scroll-to="services">
+        <span class="dot-label">Services</span>
+      </button>
     </div>
   </section>
+
 
   <!-- Bento (Mission / Vision) -->
   <section class="bento-section">
@@ -139,37 +148,65 @@
 
   <!-- Homepage‑specific hero slider -->
   <script>
-    (function() {
-      'use strict';
-      const slides = document.querySelectorAll('.hero-slide');
-      const indicators = document.querySelectorAll('#heroIndicators button');
-      if (!slides.length || !indicators.length) return;
+  (function () {
+    'use strict';
 
-      let currentSlide = 0;
-      let sliderInterval;
+    /* ================================================================
+       Hero background slider (unchanged behaviour)
+       ================================================================ */
+    const slides = document.querySelectorAll('.hero-slide');
+    const indicators = document.querySelectorAll('#heroIndicators button');
+    if (!slides.length || !indicators.length) return;
 
-      function goToSlide(index) {
-        slides.forEach((s, i) => s.classList.toggle('active', i === index));
-        indicators.forEach((btn, i) => btn.classList.toggle('active', i === index));
-        currentSlide = index;
-      }
-      function nextSlide() {
-        goToSlide((currentSlide + 1) % slides.length);
-      }
-      indicators.forEach((btn) => {
-        btn.addEventListener('click', () => {
-          clearInterval(sliderInterval);
-          goToSlide(parseInt(btn.dataset.index));
-          sliderInterval = setInterval(nextSlide, 5000);
-        });
-      });
+    let currentSlide = 0;
+    let sliderInterval;
+
+    function goToSlide(index) {
+      slides.forEach((s, i) => s.classList.toggle('active', i === index));
+      currentSlide = index;
+    }
+
+    function nextSlide() {
+      goToSlide((currentSlide + 1) % slides.length);
+    }
+
+    sliderInterval = setInterval(nextSlide, 5000);
+
+    const hero = document.getElementById('heroSection');
+    hero.addEventListener('mouseenter', () => clearInterval(sliderInterval));
+    hero.addEventListener('mouseleave', () => {
       sliderInterval = setInterval(nextSlide, 5000);
-      const hero = document.getElementById('heroSection');
-      hero.addEventListener('mouseenter', () => clearInterval(sliderInterval));
-      hero.addEventListener('mouseleave', () => {
-        sliderInterval = setInterval(nextSlide, 5000);
+    });
+
+    /* ================================================================
+       Indicator clicks → smooth scroll to section
+       ================================================================ */
+    indicators.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        clearInterval(sliderInterval);   // optional: stop auto‑rotation when a dot is clicked
+
+        const targetId = btn.dataset.scrollTo;
+        let targetElement;
+
+        if (targetId === 'hero') {
+          targetElement = document.getElementById('heroSection');
+        } else if (targetId === 'mission') {
+          targetElement = document.querySelector('.bento-section');
+        } else if (targetId === 'services') {
+          targetElement = document.querySelector('.services-section');
+        }
+
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Remove 'active' from all buttons, then add to the clicked one
+        indicators.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
       });
-    })();
+    });
+  })();
   </script>
 </body>
 </html>

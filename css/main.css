@@ -34,12 +34,16 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Global body – also makes footer sticky on all pages */
 body {
   font-family: var(--font-family);
   background: var(--color-bg-primary);
   color: var(--color-text-primary);
   line-height: 1.6;
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;               /* full viewport height */
 }
 
 /* ----- SCROLLBAR ----- */
@@ -577,7 +581,26 @@ body {
   .footer-inner { flex-direction: column; text-align: center; }
 }
 
+/* Mobile overrides for services (only on small screens) */
 @media (max-width: 480px) {
+  .services-section {
+    padding: 3rem 0;
+  }
+  .services-grid {
+    gap: 1.25rem;
+  }
+  .service-card {
+    padding: 1.5rem 1.2rem;
+  }
+  .service-card h4 {
+    font-size: 1.25rem;
+  }
+  .service-card p {
+    font-size: 0.9rem;
+  }
+  .services-section .section-title {
+    text-align: center;
+  }
   .hero-btns { flex-direction: column; }
   .btn-primary, .btn-outline { padding: 0.7rem 2rem; width: 100%; text-align: center; }
 }
@@ -749,40 +772,11 @@ body {
   overflow: hidden;
   border: 1px solid var(--color-glass-border);
 }
-.services-section {
-   padding: 3rem 0;            /* reduce top/bottom padding */
- }
 
- .services-grid {
-   gap: 1.25rem;               /* tighter gap between cards */
- }
-
- .service-card {
-   padding: 1.5rem 1.2rem;     /* less internal padding */
- }
-
- .service-card h4 {
-   font-size: 1.25rem;         /* slightly smaller heading */
- }
-
- .service-card p {
-   font-size: 0.9rem;          /* reduce text size */
- }
-
- /* Centre the header text */
- .services-section .section-title {
-   text-align: center;
- }
-
-/* Optional: remove border-radius on small screens if you prefer straight edges */
 @media (max-width: 768px) {
   .contact-map {
     border-radius: 0;
   }
-}
-
-/* Mobile adjustments for contact grid */
-@media (max-width: 768px) {
   .contact-grid {
     grid-template-columns: 1fr;
   }
@@ -914,18 +908,13 @@ body {
     height: 260px;
   }
 }
+
 /* ============================================================
    RIKEN KEIKI PAGE
    ============================================================ */
+/* (Flex properties are already on the global body – no need to repeat) */
 
-/* Make the body a flex column that fills the screen */
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;               /* full viewport height */
-}
-
-/* Let the main content grow and push the footer down */
+/* Allow main sections to shrink so footer is pushed down */
 #header-placeholder,
 .site-header,
 .page-banner,
@@ -939,7 +928,7 @@ body {
   flex-shrink: 0;                  /* prevent sections from shrinking */
 }
 
-/* The footer placeholder (and the footer itself after injection) */
+/* Footer pushed to bottom */
 #footer-placeholder,
 .site-footer {
   margin-top: auto;                /* push to the bottom */
@@ -1152,6 +1141,7 @@ body {
         max-width: 100%;
     }
 }
+
 /* ============================================================
    CERTIFICATES SECTION
    ============================================================ */
@@ -1303,4 +1293,167 @@ body {
 .url-highlight {
   color: #3431a5;                     /* or any brand colour */
   font-weight: var(--font-weight-semibold);  /* optional */
+}
+
+/* ============================================================
+   TRAINING PAGE
+   ============================================================ */
+.training-intro {
+  padding: 4rem 0 2rem;
+}
+
+.training-list-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.training-list-content .section-title {
+  margin-bottom: 1.5rem;
+}
+
+.course-link-list {
+  list-style: none;
+  margin-top: 1.5rem;
+}
+
+.course-link-list li {
+  margin-bottom: 0.8rem;
+}
+
+.course-link-list a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.1rem;
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: color 0.3s, transform 0.2s;
+}
+
+.course-link-list a:hover {
+  color: var(--color-accent);
+  transform: translateX(6px);
+}
+
+.course-link-list a i {
+  color: var(--color-accent);
+  font-size: 0.9rem;
+  transition: transform 0.2s;
+}
+
+.course-link-list a:hover i {
+  transform: translateX(4px);
+}
+
+/* Generic span style – no forced colour, so static items get their own colour */
+.course-link-list li span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.1rem;
+  font-weight: var(--font-weight-light);
+}
+
+.course-link-static {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.1rem;
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  cursor: default;               /* no hand cursor */
+}
+
+.course-link-static:hover {
+  color: var(--color-text-primary);
+  transform: none;
+}
+
+.course-link-static i {
+  color: var(--color-accent);    /* arrow icon still coloured */
+  font-size: 0.9rem;
+}
+
+.training-list-image img {
+  width: 100%;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--color-glass-border);
+}
+
+/* Detailed training cards grid */
+.training-details {
+  padding: 3rem 0 5rem;
+}
+
+.training-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.training-card {
+  background: var(--color-bg-card);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-card);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  transition: all var(--transition-bounce);
+}
+
+.training-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--color-glass-border-hover);
+  box-shadow: var(--shadow-heavy);
+}
+
+.training-icon {
+  font-size: 2.5rem;
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.training-card h3 {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 1rem;
+}
+
+.training-card p {
+  color: var(--color-text-muted);
+  font-weight: var(--font-weight-light);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* Responsive: stack columns on tablet / mobile */
+@media (max-width: 1024px) {
+  .training-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .training-list-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .training-list-image {
+    order: -1;
+    text-align: center;
+  }
+  .training-list-image img {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  .training-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 }

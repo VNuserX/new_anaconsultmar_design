@@ -3,87 +3,210 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Under Maintenance – ANAConsultmar</title>
+  <title>ANAConsultmar</title>
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/font-awesome/css/all.min.css" />
-  <style>
-    :root {
-      --color-accent: #0ea5e9;
-      --color-text-bright: #1e293b;
-      --color-text-muted: #64748b;
-      --color-bg-primary: #f8fafc;
-    }
-    body {
-      margin: 0;
-      font-family: 'Outfit', sans-serif;
-      background: var(--color-bg-primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      overflow: hidden;
-    }
-    .container {
-      text-align: center;
-      z-index: 1;
-      position: relative;
-      padding: 2rem;
-    }
-    h1 {
-      font-size: clamp(3rem, 10vw, 6rem);
-      font-weight: 900;
-      color: var(--color-text-bright);
-      margin: 0;
-    }
-    .highlight {
-      color: var(--color-accent);
-    }
-    p {
-      font-size: 1.2rem;
-      color: var(--color-text-muted);
-      margin: 1rem 0 2rem;
-      font-weight: 300;
-    }
-    .icon-large {
-      font-size: 5rem;
-      color: var(--color-accent);
-      margin-bottom: 1rem;
-    }
-    .particles {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: 0;
-    }
-    .particle {
-      position: absolute;
-      border-radius: 50%;
-      background: rgba(14,165,233,0.08);
-      animation: float 20s infinite alternate;
-    }
-    .particle:nth-child(1) { width: 400px; height: 400px; top: -10%; left: -10%; }
-    .particle:nth-child(2) { width: 300px; height: 300px; bottom: -5%; right: -5%; }
-    .particle:nth-child(3) { width: 200px; height: 200px; top: 40%; left: 30%; }
-    @keyframes float {
-      0% { transform: translate(0,0) scale(1); }
-      100% { transform: translate(40px,-30px) scale(1.05); }
-    }
-  </style>
+
+  <!-- Shared stylesheets -->
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/light-theme.css" />
+<script>
+  (function() {
+    var base = (window.SITE_CONFIG && window.SITE_CONFIG.base) || '';
+    var link = document.createElement('link');
+    link.rel = 'icon';
+    link.href = base + '/assets/images/favicon.jpg';
+    document.head.appendChild(link);
+  })();
+</script>
 </head>
-<body>
+<body data-page="home">
+
+  <!-- Particles -->
   <div class="particles">
     <div class="particle"></div>
     <div class="particle"></div>
     <div class="particle"></div>
+    <div class="particle"></div>
   </div>
-  <div class="container">
-    <div class="icon-large"><i class="fas fa-tools"></i></div>
-    <h1>We'll be<br><span class="highlight">back soon</span></h1>
-    <p>ANAConsultmar is currently undergoing scheduled maintenance.<br>Please check back in a few minutes.</p>
-  </div>
+
+  <!-- Placeholder for header & mobile overlay (injected by components.js) -->
+  <div id="header-placeholder"></div>
+
+  <!-- Hero (homepage specific) -->
+  <section class="hero" id="heroSection">
+    <div class="hero-background" id="heroBackground">
+      <div class="hero-slide active" style="background-image: url('/assets/images/hero/slide-bulk-cabinet.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('/assets/images/hero/slide-calibration.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('/assets/images/hero/slide-services.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('/assets/images/hero/slide-classroom.jpg');"></div>
+    </div>
+    <div class="container hero-content">
+      <div class="section-label">Excellence in Maritime</div>
+      <h1>Safety.<br /><span class="line2">Quality.</span><br />Environment.</h1>
+      <p>Improving and promoting safety, quality and environment protection in the maritime industry – sharing our experience and knowledge in a sustainable and responsible way.</p>
+
+          <div class="hero-btns">
+              <a href="/services/services.html" class="btn-primary">Explore Services</a>
+              <!--<a href="/contact/contact.html" class="btn-outline">Get in Touch</a>-->
+          </div>
+      </div>
+    </div>  <!-- END .hero-content -->
+
+    <div class="hero-indicators" id="heroIndicators">
+      <button class="active" data-scroll-to="hero">
+        <span class="dot-label">Home</span>
+      </button>
+      <button data-scroll-to="mission">
+        <span class="dot-label">Mission</span>
+      </button>
+      <button data-scroll-to="services">
+        <span class="dot-label">Services</span>
+      </button>
+    </div>
+  </section>
+
+
+  <!-- Bento (Mission / Vision) -->
+  <section class="bento-section">
+    <div class="container">
+      <div class="section-label reveal">Who we are</div>
+      <h2 class="section-title reveal">Mission &amp; <span class="highlight">Vision</span></h2>
+      <div class="bento-grid">
+        <div class="bento-item mission reveal">
+          <span class="icon-lg"><i class="fas fa-bullseye"></i></span>
+          <h3>Mission</h3>
+          <p>Improving and promoting safety, quality and environment protection in the maritime industry sharing our experience and knowledge in a sustainable and responsible way.</p>
+        </div>
+        <div class="bento-item vision reveal">
+          <span class="icon-lg"><i class="fas fa-eye"></i></span>
+          <h3>Vision</h3>
+          <p>Becoming the maritime industry preferred partner in safety, quality, compliance, environment protection and services in Baltic.</p>
+        </div>
+        <div class="bento-item stat reveal">
+          <span class="number">15+</span>
+          <p style="font-weight:300;">Years of excellence in maritime consulting &amp; safety.</p>
+        </div>
+        <div class="bento-item image-item reveal">
+          <img src="/assets/images/bento/ship-vent.jpg" alt="Maritime expertise" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services-section">
+    <div class="container">
+      <div class="section-label reveal">What we offer</div>
+      <h2 class="section-title reveal">Core <span class="highlight">Services</span></h2>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="icon"><i class="fas fa-ship"></i></div>
+          <h4>Pre-Vetting</h4>
+          <p>Inspection to ensure your ship is in full compliance with the latest VIQ and in proper practical/cosmetic condition.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon"><i class="fas fa-clipboard-check"></i></div>
+          <h4>QA Audits</h4>
+          <p>Comprehensive QA audits to verify shipboard organization, procedures, and performance meet the highest standards.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon"><i class="fas fa-chalkboard-teacher"></i></div>
+          <h4>Training</h4>
+          <p>Vetting courses, leadership, gas measuring equipment, enclosed space procedures, and interactive role‑play learning.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon"><i class="fas fa-microscope"></i></div>
+          <h4>Riken Keiki</h4>
+          <p>Sales, calibration, maintenance, and consumables for Riken Keiki gas detection instruments – reliable and precise.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon"><i class="fas fa-handshake"></i></div>
+          <h4>The Bruusgaard System</h4>
+          <p>Service and support for TBS instruments, including Riken Keiki, RAE, and Gastec, with expert personnel training.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon"><i class="fas fa-globe-americas"></i></div>
+          <h4>Environment Protection</h4>
+          <p>Sustainable and responsible practices to protect our oceans and promote a greener maritime future.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Placeholder for footer (injected by components.js) -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Shared JavaScript -->
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/components.js"></script>
+
+  <!-- Homepage‑specific hero slider -->
+  <script>
+  (function () {
+    'use strict';
+
+    /* ================================================================
+       Hero background slider (unchanged behaviour)
+       ================================================================ */
+    const slides = document.querySelectorAll('.hero-slide');
+    const indicators = document.querySelectorAll('#heroIndicators button');
+    if (!slides.length || !indicators.length) return;
+
+    let currentSlide = 0;
+    let sliderInterval;
+
+    function goToSlide(index) {
+      slides.forEach((s, i) => s.classList.toggle('active', i === index));
+      currentSlide = index;
+    }
+
+    function nextSlide() {
+      goToSlide((currentSlide + 1) % slides.length);
+    }
+
+    sliderInterval = setInterval(nextSlide, 5000);
+
+    const hero = document.getElementById('heroSection');
+    hero.addEventListener('mouseenter', () => clearInterval(sliderInterval));
+    hero.addEventListener('mouseleave', () => {
+      sliderInterval = setInterval(nextSlide, 5000);
+    });
+
+    /* ================================================================
+       Indicator clicks → smooth scroll to section
+       ================================================================ */
+    indicators.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        clearInterval(sliderInterval);   // optional: stop auto‑rotation when a dot is clicked
+
+        const targetId = btn.dataset.scrollTo;
+        let targetElement;
+
+        if (targetId === 'hero') {
+          targetElement = document.getElementById('heroSection');
+        } else if (targetId === 'mission') {
+          targetElement = document.querySelector('.bento-section');
+        } else if (targetId === 'services') {
+          targetElement = document.querySelector('.services-section');
+        }
+
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Remove 'active' from all buttons, then add to the clicked one
+        indicators.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  })();
+  </script>
 </body>
 </html>

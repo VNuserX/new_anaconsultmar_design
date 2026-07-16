@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ -f "../index.html.bak" ]; then
+if [ -f "index.html.bak" ]; then
   echo "Maintenance already enabled."
   exit 1
 fi

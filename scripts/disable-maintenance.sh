@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ ! -f "../index.html.bak" ]; then
+if [ ! -f "index.html.bak" ]; then
   echo "Maintenance is not active."
   exit 1
 fi

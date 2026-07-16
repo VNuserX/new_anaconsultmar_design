@@ -1270,8 +1270,7 @@ body {
    PARTNER LOGOS – constrain their size
    ============================================================ */
 [data-page="lapa"] .about-images img,
-[data-page="km-ship"] .about-images img,
-[data-page="makarov"] .about-images img {
+[data-page="km-ship"] .about-images img {
     max-width: 200px;      /* adjust this value as needed */
     width: 100%;
     height: auto;
@@ -1285,8 +1284,7 @@ body {
 }
 
 [data-page="lapa"] .about-images img:hover,
-[data-page="km-ship"] .about-images img:hover,
-[data-page="makarov"] .about-images img:hover {
+[data-page="km-ship"] .about-images img:hover {
     transform: scale(1.05);
 }
 

@@ -106,8 +106,6 @@ wget -O assets/images/partners/km-logo.jpg \
   "https://anaconsultmar.com/wp-content/uploads/2018/10/KM-logo.jpg"
 wget -O assets/images/partners/lapa-logo.jpg \
   "https://anaconsultmar.com/wp-content/uploads/2018/10/Lapa-logo.jpg"
-wget -O assets/images/partners/makarov-logo.jpg \
-  "https://anaconsultmar.com/wp-content/uploads/2018/10/Makarov-logo.jpg"
 
 echo "==> Downloading Riken Keiki logo…"
 wget -O assets/images/riken-keiki/logo.jpg \
